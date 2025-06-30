@@ -58,8 +58,8 @@ function AppContent() {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
-          <div className="w-8 h-8 border-4 border-blue-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-          <p className="text-gray-600">Loading First Year Starter...</p>
+          <div className="w-8 h-8 border-4 border-blue-700 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <p className="text-body">Loading First Year Starter...</p>
         </div>
       </div>
     );
@@ -67,7 +67,7 @@ function AppContent() {
 
   return (
     <Router>
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen bg-gray-50 page-fade-in">
         <Navigation 
           isAuthenticated={isAuthenticated} 
           onLogin={handleLogin}

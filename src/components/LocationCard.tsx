@@ -29,18 +29,26 @@ export const LocationCard: React.FC<LocationCardProps> = ({
   };
 
   return (
-    <div className="bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-all duration-200 overflow-hidden group">
+    <div className="bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-all duration-200 overflow-hidden group card-hover">
+      {/* Image placeholder with 4:3 aspect ratio */}
+      <div className="aspect-4-3 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
+        <div className="text-center text-gray-500">
+          <div className="text-2xl mb-2">📍</div>
+          <div className="text-meta">Photo coming soon</div>
+        </div>
+      </div>
+      
       <div className="p-6">
-        <div className="flex items-start justify-between mb-3">
+        <div className="flex items-start justify-between mb-4">
           <div className="flex-1">
-            <div className="flex items-center space-x-2 mb-2">
-              <span className={`text-xs font-medium px-2 py-1 rounded-full ${getCategoryColor(location.category)}`}>
+            <div className="flex items-center space-x-2 mb-3">
+              <span className={`text-meta px-2 py-1 rounded-full ${getCategoryColor(location.category)}`}>
                 {location.category.replace('-', ' ')}
               </span>
               {onToggleSave && (
                 <button
                   onClick={() => onToggleSave(location.id)}
-                  className={`p-1 rounded-full transition-colors ${
+                  className={`p-1 rounded-full transition-colors focus-ring ${
                     isSaved ? 'text-red-500 hover:text-red-600' : 'text-gray-400 hover:text-red-500'
                   }`}
                 >
@@ -48,12 +56,12 @@ export const LocationCard: React.FC<LocationCardProps> = ({
                 </button>
               )}
             </div>
-            <h3 className="text-lg font-semibold text-gray-900 mb-1">{location.name}</h3>
-            <p className="text-gray-600 text-sm mb-3">{location.description}</p>
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">{location.name}</h3>
+            <p className="text-body mb-4">{location.description}</p>
           </div>
         </div>
 
-        <div className="flex items-center space-x-4 mb-4 text-sm text-gray-500">
+        <div className="flex items-center space-x-4 mb-4 text-meta">
           <div className="flex items-center space-x-1">
             <Star className="h-4 w-4 text-yellow-500 fill-current" />
             <span>{location.rating.toFixed(1)}</span>
@@ -70,33 +78,33 @@ export const LocationCard: React.FC<LocationCardProps> = ({
           )}
         </div>
 
-        <div className="flex flex-wrap gap-2 mb-4">
+        <div className="flex flex-wrap gap-2 mb-6">
           {location.features.slice(0, 3).map((feature) => (
-            <span key={feature} className="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded">
+            <span key={feature} className="text-meta bg-gray-100 text-gray-600 px-2 py-1 rounded">
               {feature}
             </span>
           ))}
           {location.features.length > 3 && (
-            <span className="text-xs text-gray-500">+{location.features.length - 3} more</span>
+            <span className="text-meta text-gray-500">+{location.features.length - 3} more</span>
           )}
         </div>
 
         {location.tips.length > 0 && (
-          <div className="bg-blue-50 rounded-lg p-3 mb-4">
+          <div className="bg-blue-50 rounded-lg p-4 mb-6">
             <div className="flex items-center space-x-2 mb-2">
-              <MessageCircle className="h-4 w-4 text-blue-600" />
+              <MessageCircle className="h-4 w-4 text-blue-700" />
               <span className="text-sm font-medium text-blue-900">Recent Tip</span>
             </div>
             <p className="text-sm text-blue-800">"{location.tips[0].content}"</p>
-            <p className="text-xs text-blue-600 mt-1">- {location.tips[0].author}</p>
+            <p className="text-meta text-blue-600 mt-1">- {location.tips[0].author}</p>
           </div>
         )}
 
         <button
           onClick={() => onViewDetails(location)}
-          className="w-full flex items-center justify-center space-x-2 px-4 py-2 bg-gray-50 text-gray-700 rounded-lg hover:bg-gray-100 transition-colors group-hover:bg-blue-50 group-hover:text-blue-700"
+          className="w-full flex items-center justify-center space-x-2 px-4 py-3 bg-gray-50 text-gray-700 rounded-lg hover:bg-gray-100 transition-colors group-hover:bg-blue-50 group-hover:text-blue-700 btn-hover focus-ring"
         >
-          <span>View Details</span>
+          <span className="font-medium">View Details</span>
           <ArrowRight className="h-4 w-4" />
         </button>
       </div>
