@@ -41,7 +41,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onGetStarted }) => {
     }
   }, [selectedUniversity]);
 
-  const featuredLocations = universityLocations.slice(0, 5); // Show 5 instead of 3
+  const featuredLocations = universityLocations.slice(0, 6); // Show 6 for better grid
 
   const handleMatchResults = (matches: Location[]) => {
     setMatchedSpots(matches);
@@ -213,7 +213,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onGetStarted }) => {
                     <ArrowRight className="h-4 w-4" />
                   </Link>
                 </div>
-                <div className="cards-grid">
+                <div className="popular-locations-grid">
                   {matchedSpots.map((location) => (
                     <LocationCard
                       key={location.id}
@@ -227,7 +227,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onGetStarted }) => {
               </section>
             )}
 
-            {/* Featured Locations */}
+            {/* Featured Locations - Fixed width issue */}
             {featuredLocations.length > 0 && (
               <section>
                 <div className="flex items-center justify-between mb-12">
@@ -240,7 +240,8 @@ export const HomePage: React.FC<HomePageProps> = ({ onGetStarted }) => {
                     <ArrowRight className="h-4 w-4" />
                   </Link>
                 </div>
-                <div className="cards-grid">
+                {/* Fixed grid for Popular This Week - wider cards */}
+                <div className="popular-locations-grid">
                   {featuredLocations.map((location) => (
                     <LocationCard
                       key={location.id}

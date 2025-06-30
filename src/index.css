@@ -144,6 +144,47 @@
     }
   }
   
+  /* Special grid for Popular This Week - wider cards to prevent text overflow */
+  .popular-locations-grid {
+    @apply grid gap-4 md:gap-6 lg:gap-8;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  
+  /* Mobile: 1 column */
+  @media (min-width: 480px) {
+    .popular-locations-grid {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+  
+  /* Tablet: 2 columns for wider cards */
+  @media (min-width: 768px) {
+    .popular-locations-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  /* Desktop: 3 columns for optimal width */
+  @media (min-width: 1024px) {
+    .popular-locations-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  /* Large desktop: 3 columns to maintain card width */
+  @media (min-width: 1280px) {
+    .popular-locations-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  /* Extra large: 4 columns max */
+  @media (min-width: 1536px) {
+    .popular-locations-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  
   /* Stats grid - always 2x2 on mobile, 4x1 on larger screens */
   .stats-grid {
     @apply grid gap-4 md:gap-6;
@@ -232,6 +273,28 @@
   
   .content-width-narrow {
     @apply max-w-4xl mx-auto;
+  }
+  
+  /* Text clamping utilities */
+  .line-clamp-1 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+  }
+  
+  .line-clamp-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+  
+  .line-clamp-3 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
   }
 }
 
