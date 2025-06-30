@@ -2,33 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Color Palette Variables */
-:root {
-  --primary: #4F46E5;     /* Indigo */
-  --secondary: #7C3AED;   /* Violet */
-  --accent: #22D3EE;      /* Teal */
-  --background: #F9FAFB;  /* Off-white */
-  --text: #111827;        /* Cool Gray 900 */
-}
-
 /* Typography System */
 @layer base {
   /* Main Title - Big Bold */
   .title-main {
-    @apply text-4xl md:text-5xl lg:text-6xl font-bold leading-tight;
-    color: var(--text);
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight;
   }
   
   /* Subheading - Slightly Smaller */
   .title-sub {
-    @apply text-2xl md:text-3xl font-semibold leading-tight;
-    color: var(--text);
+    @apply text-2xl md:text-3xl font-semibold text-gray-900 leading-tight;
   }
   
   /* Body Text - Standard */
   .text-body {
-    @apply text-base leading-relaxed;
-    color: #374151; /* Gray 700 for better readability */
+    @apply text-base text-gray-700 leading-relaxed;
   }
   
   /* Metadata - Small Uppercase */
@@ -38,8 +26,7 @@
   
   /* Focus styles for accessibility */
   .focus-ring {
-    @apply focus:outline-none focus:ring-2 focus:ring-offset-2;
-    --tw-ring-color: var(--primary);
+    @apply focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2;
   }
   
   /* Button focus styles */
@@ -48,39 +35,20 @@
   input:focus-visible,
   textarea:focus-visible,
   select:focus-visible {
-    @apply outline-none ring-2 ring-offset-2;
-    --tw-ring-color: var(--primary);
+    @apply outline-none ring-2 ring-blue-600 ring-offset-2;
   }
   
-  /* Update blue colors to use new primary */
-  .bg-blue-600,
-  .bg-blue-700 {
-    background-color: var(--primary);
+  /* Improved blue color for better contrast */
+  .bg-blue-600 {
+    @apply bg-blue-700;
   }
   
-  .text-blue-600,
-  .text-blue-700 {
-    color: var(--primary);
+  .text-blue-600 {
+    @apply text-blue-700;
   }
   
-  .border-blue-600,
-  .border-blue-700 {
-    border-color: var(--primary);
-  }
-  
-  .hover\:bg-blue-700:hover,
-  .hover\:bg-blue-800:hover {
-    background-color: #3730A3; /* Darker indigo for hover */
-  }
-  
-  .hover\:text-blue-700:hover,
-  .hover\:text-blue-800:hover {
-    color: #3730A3;
-  }
-  
-  /* Background color updates */
-  body {
-    background-color: var(--background);
+  .border-blue-600 {
+    @apply border-blue-700;
   }
 }
 
@@ -107,39 +75,6 @@
   
   .card-hover:hover {
     @apply transform translate-y-[-2px] shadow-lg;
-  }
-  
-  /* Primary button styles */
-  .btn-primary {
-    background-color: var(--primary);
-    @apply text-white font-semibold px-6 py-3 rounded-xl shadow-lg transition-all duration-200;
-  }
-  
-  .btn-primary:hover {
-    background-color: #3730A3;
-    @apply transform scale-105 shadow-xl;
-  }
-  
-  /* Secondary button styles */
-  .btn-secondary {
-    background-color: var(--secondary);
-    @apply text-white font-semibold px-6 py-3 rounded-xl shadow-lg transition-all duration-200;
-  }
-  
-  .btn-secondary:hover {
-    background-color: #6D28D9;
-    @apply transform scale-105 shadow-xl;
-  }
-  
-  /* Accent button styles */
-  .btn-accent {
-    background-color: var(--accent);
-    @apply text-white font-semibold px-6 py-3 rounded-xl shadow-lg transition-all duration-200;
-  }
-  
-  .btn-accent:hover {
-    background-color: #0891B2;
-    @apply transform scale-105 shadow-xl;
   }
   
   /* Respect reduced motion preferences */
@@ -173,23 +108,93 @@
   }
 }
 
-/* Grid System for Cards */
+/* Improved Grid System for Better Space Utilization */
 @layer utilities {
+  /* Main cards grid - better responsive breakpoints */
   .cards-grid {
-    @apply grid gap-6 md:gap-8;
-    grid-template-columns: repeat(2, 1fr);
+    @apply grid gap-4 md:gap-6 lg:gap-8;
+    grid-template-columns: repeat(1, 1fr);
   }
   
+  /* Mobile: 1 column for very small screens, 2 for larger mobile */
+  @media (min-width: 480px) {
+    .cards-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  /* Tablet: 3 columns */
   @media (min-width: 768px) {
     .cards-grid {
       grid-template-columns: repeat(3, 1fr);
     }
   }
   
+  /* Desktop: 4 columns */
   @media (min-width: 1024px) {
     .cards-grid {
       grid-template-columns: repeat(4, 1fr);
     }
+  }
+  
+  /* Large desktop: 5 columns for better space usage */
+  @media (min-width: 1280px) {
+    .cards-grid {
+      grid-template-columns: repeat(5, 1fr);
+    }
+  }
+  
+  /* Stats grid - always 2x2 on mobile, 4x1 on larger screens */
+  .stats-grid {
+    @apply grid gap-4 md:gap-6;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  @media (min-width: 768px) {
+    .stats-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  
+  /* Feature cards grid - responsive 3-column layout */
+  .features-grid {
+    @apply grid gap-6 md:gap-8 lg:gap-12;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  
+  @media (min-width: 768px) {
+    .features-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .features-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  /* Wide cards for better content display */
+  .wide-cards-grid {
+    @apply grid gap-6 md:gap-8;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  
+  @media (min-width: 640px) {
+    .wide-cards-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .wide-cards-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  /* Full width container with better max-width */
+  .container-full {
+    @apply w-full max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12;
   }
   
   /* Image aspect ratio */
@@ -197,23 +202,36 @@
     aspect-ratio: 4 / 3;
   }
   
-  /* Section spacing */
+  /* Section spacing with better responsive values */
   .section-spacing {
-    @apply py-16 md:py-20 lg:py-24;
+    @apply py-12 md:py-16 lg:py-20 xl:py-24;
   }
   
   .section-spacing-sm {
-    @apply py-12 md:py-16;
+    @apply py-8 md:py-12 lg:py-16;
   }
   
   /* Subheading spacing */
   .subheading-spacing {
-    @apply mt-16 md:mt-20 mb-8 md:mb-12;
+    @apply mt-12 md:mt-16 lg:mt-20 mb-6 md:mb-8 lg:mb-12;
   }
   
   /* Prevent horizontal scroll */
   .no-scroll-x {
     @apply overflow-x-hidden;
+  }
+  
+  /* Better content width management */
+  .content-width {
+    @apply max-w-7xl mx-auto;
+  }
+  
+  .content-width-wide {
+    @apply max-w-8xl mx-auto;
+  }
+  
+  .content-width-narrow {
+    @apply max-w-4xl mx-auto;
   }
 }
 
@@ -224,10 +242,21 @@
   }
   
   body {
-    @apply no-scroll-x;
+    @apply no-scroll-x bg-gray-50;
   }
   
   * {
     @apply box-border;
+  }
+}
+
+/* Custom max-width for very large screens */
+@layer utilities {
+  .max-w-8xl {
+    max-width: 88rem; /* 1408px */
+  }
+  
+  .max-w-9xl {
+    max-width: 96rem; /* 1536px */
   }
 }
