@@ -78,7 +78,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onGetStarted }) => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 page-fade-in">
+    <div className="min-h-screen page-fade-in" style={{ backgroundColor: 'var(--background)' }}>
       <Hero onGetStarted={handleGetStarted} />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 section-spacing">
@@ -100,23 +100,23 @@ export const HomePage: React.FC<HomePageProps> = ({ onGetStarted }) => {
         {/* Quick Stats */}
         <div className="cards-grid mb-20">
           <div className="bg-white rounded-xl p-8 text-center shadow-sm border border-gray-100 card-hover">
-            <Compass className="h-8 w-8 text-blue-700 mx-auto mb-4" />
-            <div className="text-3xl font-bold text-gray-900">{universityLocations.length}+</div>
+            <Compass className="h-8 w-8 text-indigo-600 mx-auto mb-4" />
+            <div className="text-3xl font-bold" style={{ color: 'var(--text)' }}>{universityLocations.length}+</div>
             <div className="text-meta">Campus Locations</div>
           </div>
           <div className="bg-white rounded-xl p-8 text-center shadow-sm border border-gray-100 card-hover">
-            <Users className="h-8 w-8 text-emerald-600 mx-auto mb-4" />
-            <div className="text-3xl font-bold text-gray-900">1.2K</div>
+            <Users className="h-8 w-8 text-teal-500 mx-auto mb-4" />
+            <div className="text-3xl font-bold" style={{ color: 'var(--text)' }}>1.2K</div>
             <div className="text-meta">Active Students</div>
           </div>
           <div className="bg-white rounded-xl p-8 text-center shadow-sm border border-gray-100 card-hover">
-            <DollarSign className="h-8 w-8 text-purple-600 mx-auto mb-4" />
-            <div className="text-3xl font-bold text-gray-900">150+</div>
+            <DollarSign className="h-8 w-8 text-violet-600 mx-auto mb-4" />
+            <div className="text-3xl font-bold" style={{ color: 'var(--text)' }}>150+</div>
             <div className="text-meta">Free Resources</div>
           </div>
           <div className="bg-white rounded-xl p-8 text-center shadow-sm border border-gray-100 card-hover">
             <Star className="h-8 w-8 text-yellow-500 mx-auto mb-4" />
-            <div className="text-3xl font-bold text-gray-900">4.8</div>
+            <div className="text-3xl font-bold" style={{ color: 'var(--text)' }}>4.8</div>
             <div className="text-meta">Average Rating</div>
           </div>
         </div>
@@ -135,10 +135,10 @@ export const HomePage: React.FC<HomePageProps> = ({ onGetStarted }) => {
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
                 {/* Voice AI */}
                 <div className="bg-white rounded-xl p-10 shadow-sm border border-gray-100 card-hover">
-                  <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-blue-500 rounded-xl flex items-center justify-center mb-8">
+                  <div className="w-12 h-12 bg-gradient-to-r from-violet-500 to-indigo-500 rounded-xl flex items-center justify-center mb-8">
                     <Brain className="h-6 w-6 text-white" />
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-4">Voice Campus AI</h3>
+                  <h3 className="text-xl font-semibold mb-4" style={{ color: 'var(--text)' }}>Voice Campus AI</h3>
                   <p className="text-body mb-8">
                     Ask questions about {selectedUniversity.shortName} and get instant spoken answers about study spots, dining, and campus life.
                   </p>
@@ -147,10 +147,10 @@ export const HomePage: React.FC<HomePageProps> = ({ onGetStarted }) => {
 
                 {/* Study Spot Matcher */}
                 <div className="bg-white rounded-xl p-10 shadow-sm border border-gray-100 card-hover">
-                  <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-emerald-500 rounded-xl flex items-center justify-center mb-8">
+                  <div className="w-12 h-12 bg-gradient-to-r from-indigo-500 to-teal-500 rounded-xl flex items-center justify-center mb-8">
                     <MapPin className="h-6 w-6 text-white" />
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-4">Smart Study Matcher</h3>
+                  <h3 className="text-xl font-semibold mb-4" style={{ color: 'var(--text)' }}>Smart Study Matcher</h3>
                   <p className="text-body mb-8">
                     Answer a few questions and we'll find the perfect study spots that match your preferences and study style.
                   </p>
@@ -159,24 +159,24 @@ export const HomePage: React.FC<HomePageProps> = ({ onGetStarted }) => {
 
                 {/* Quick Actions */}
                 <div className="bg-white rounded-xl p-10 shadow-sm border border-gray-100 card-hover">
-                  <div className="w-12 h-12 bg-gradient-to-r from-emerald-500 to-purple-500 rounded-xl flex items-center justify-center mb-8">
+                  <div className="w-12 h-12 bg-gradient-to-r from-teal-500 to-violet-500 rounded-xl flex items-center justify-center mb-8">
                     <Zap className="h-6 w-6 text-white" />
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-4">Quick Actions</h3>
+                  <h3 className="text-xl font-semibold mb-4" style={{ color: 'var(--text)' }}>Quick Actions</h3>
                   <p className="text-body mb-8">
                     Jump into the most popular features and start exploring {selectedUniversity.shortName} right away.
                   </p>
                   <div className="space-y-4">
                     <Link
                       to="/map"
-                      className="flex items-center justify-between w-full p-4 bg-blue-50 text-blue-700 rounded-lg hover:bg-blue-100 transition-colors btn-hover focus-ring"
+                      className="flex items-center justify-between w-full p-4 bg-indigo-50 text-indigo-700 rounded-lg hover:bg-indigo-100 transition-colors btn-hover focus-ring"
                     >
                       <span>🗺️ Explore Campus Map</span>
                       <ArrowRight className="h-4 w-4" />
                     </Link>
                     <Link
                       to="/resources"
-                      className="flex items-center justify-between w-full p-4 bg-emerald-50 text-emerald-700 rounded-lg hover:bg-emerald-100 transition-colors btn-hover focus-ring"
+                      className="flex items-center justify-between w-full p-4 bg-teal-50 text-teal-700 rounded-lg hover:bg-teal-100 transition-colors btn-hover focus-ring"
                     >
                       <span>📚 Educational Resources</span>
                       <ArrowRight className="h-4 w-4" />
@@ -190,7 +190,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onGetStarted }) => {
                     </Link>
                     <Link
                       to="/community"
-                      className="flex items-center justify-between w-full p-4 bg-purple-50 text-purple-700 rounded-lg hover:bg-purple-100 transition-colors btn-hover focus-ring"
+                      className="flex items-center justify-between w-full p-4 bg-violet-50 text-violet-700 rounded-lg hover:bg-violet-100 transition-colors btn-hover focus-ring"
                     >
                       <span>👥 Join Community</span>
                       <ArrowRight className="h-4 w-4" />
@@ -207,7 +207,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onGetStarted }) => {
                   <h3 className="title-sub">Your Personalized Matches</h3>
                   <Link
                     to="/map"
-                    className="flex items-center space-x-2 text-blue-700 hover:text-blue-800 font-medium btn-hover focus-ring rounded"
+                    className="flex items-center space-x-2 text-indigo-600 hover:text-indigo-700 font-medium btn-hover focus-ring rounded"
                   >
                     <span>View All Locations</span>
                     <ArrowRight className="h-4 w-4" />
@@ -234,7 +234,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onGetStarted }) => {
                   <h3 className="title-sub">Popular This Week</h3>
                   <Link
                     to="/map"
-                    className="flex items-center space-x-2 text-blue-700 hover:text-blue-800 font-medium btn-hover focus-ring rounded"
+                    className="flex items-center space-x-2 text-indigo-600 hover:text-indigo-700 font-medium btn-hover focus-ring rounded"
                   >
                     <span>Explore All</span>
                     <ArrowRight className="h-4 w-4" />
@@ -259,7 +259,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onGetStarted }) => {
               <section>
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
                   <div className="lg:col-span-2">
-                    <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl p-10 border border-blue-100">
+                    <div className="bg-gradient-to-r from-indigo-50 to-violet-50 rounded-xl p-10 border border-indigo-100">
                       <h3 className="title-sub mb-6">Ready to Explore More?</h3>
                       <p className="text-body text-lg mb-8">
                         Discover academic tools, connect with the community, and make the most of your {selectedUniversity.shortName} experience.
@@ -267,19 +267,19 @@ export const HomePage: React.FC<HomePageProps> = ({ onGetStarted }) => {
                       <div className="flex flex-wrap gap-6">
                         <Link
                           to="/resources"
-                          className="px-6 py-3 bg-blue-700 text-white rounded-lg hover:bg-blue-800 transition-colors btn-hover focus-ring"
+                          className="btn-primary"
                         >
                           Educational Resources
                         </Link>
                         <Link
                           to="/resource-unlocker"
-                          className="px-6 py-3 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition-colors btn-hover focus-ring"
+                          className="btn-secondary"
                         >
                           Free & Discounted Resources
                         </Link>
                         <Link
                           to="/community"
-                          className="px-6 py-3 bg-white text-blue-700 border-2 border-blue-200 rounded-lg hover:bg-blue-50 transition-colors btn-hover focus-ring"
+                          className="px-6 py-3 bg-white text-indigo-600 border-2 border-indigo-200 rounded-xl hover:bg-indigo-50 transition-colors btn-hover focus-ring font-semibold"
                         >
                           Join Community
                         </Link>
@@ -304,30 +304,30 @@ export const HomePage: React.FC<HomePageProps> = ({ onGetStarted }) => {
 
               <div className="cards-grid">
                 <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-100 card-hover">
-                  <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
-                    <Compass className="h-6 w-6 text-blue-700" />
+                  <div className="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center mb-6">
+                    <Compass className="h-6 w-6 text-indigo-600" />
                   </div>
-                  <h3 className="font-semibold text-gray-900 mb-3">Find Your Way</h3>
+                  <h3 className="font-semibold mb-3" style={{ color: 'var(--text)' }}>Find Your Way</h3>
                   <p className="text-body">
                     Interactive maps show you the best study spots, dining options, and hidden gems on campus
                   </p>
                 </div>
                 
                 <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-100 card-hover">
-                  <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mb-6">
-                    <DollarSign className="h-6 w-6 text-green-600" />
+                  <div className="w-12 h-12 bg-teal-100 rounded-xl flex items-center justify-center mb-6">
+                    <DollarSign className="h-6 w-6 text-teal-600" />
                   </div>
-                  <h3 className="font-semibold text-gray-900 mb-3">Access Resources</h3>
+                  <h3 className="font-semibold mb-3" style={{ color: 'var(--text)' }}>Access Resources</h3>
                   <p className="text-body">
                     Unlock free software, textbooks, and exclusive student discounts worth thousands
                   </p>
                 </div>
                 
                 <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-100 card-hover">
-                  <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-6">
-                    <Brain className="h-6 w-6 text-purple-600" />
+                  <div className="w-12 h-12 bg-violet-100 rounded-xl flex items-center justify-center mb-6">
+                    <Brain className="h-6 w-6 text-violet-600" />
                   </div>
-                  <h3 className="font-semibold text-gray-900 mb-3">Study Smarter</h3>
+                  <h3 className="font-semibold mb-3" style={{ color: 'var(--text)' }}>Study Smarter</h3>
                   <p className="text-body">
                     Discover personalized study techniques and tools that match your learning style
                   </p>
@@ -337,7 +337,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onGetStarted }) => {
                   <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-6">
                     <Lightbulb className="h-6 w-6 text-orange-600" />
                   </div>
-                  <h3 className="font-semibold text-gray-900 mb-3">Get Insider Tips</h3>
+                  <h3 className="font-semibold mb-3" style={{ color: 'var(--text)' }}>Get Insider Tips</h3>
                   <p className="text-body">
                     Learn from experienced students who've already navigated the challenges you face
                   </p>
@@ -348,19 +348,13 @@ export const HomePage: React.FC<HomePageProps> = ({ onGetStarted }) => {
         ) : (
           <div className="text-center section-spacing-sm">
             <div className="max-w-md mx-auto">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-8">
-                <Users className="h-8 w-8 text-blue-700" />
+              <div className="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-8">
+                <Users className="h-8 w-8 text-indigo-600" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Choose Your University</h3>
+              <h3 className="text-xl font-semibold mb-4" style={{ color: 'var(--text)' }}>Choose Your University</h3>
               <p className="text-body mb-8">
                 Select your campus to get personalized recommendations, study spots, and community tips.
               </p>
-              <button
-                onClick={handleGetStarted}
-                className="px-6 py-3 bg-blue-700 text-white rounded-lg hover:bg-blue-800 transition-colors btn-hover focus-ring"
-              >
-                Get Started
-              </button>
             </div>
           </div>
         )}

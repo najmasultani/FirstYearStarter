@@ -38,11 +38,11 @@ export const Navigation: React.FC<NavigationProps> = ({
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3 flex-shrink-0 focus-ring rounded-lg">
-            <div className="w-10 h-10 bg-gradient-to-r from-blue-700 to-purple-600 rounded-xl flex items-center justify-center">
+            <div className="w-10 h-10 bg-gradient-to-r from-indigo-600 to-violet-600 rounded-xl flex items-center justify-center">
               <Compass className="h-6 w-6 text-white" />
             </div>
             <div className="hidden sm:block">
-              <span className="text-xl font-bold bg-gradient-to-r from-blue-700 to-purple-600 bg-clip-text text-transparent">
+              <span className="text-xl font-bold bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent">
                 First Year Starter
               </span>
               <div className="text-meta">Smart University Guide</div>
@@ -61,8 +61,8 @@ export const Navigation: React.FC<NavigationProps> = ({
                   to={item.path}
                   className={`group flex flex-col items-center px-4 py-3 rounded-lg text-xs font-medium transition-all duration-200 focus-ring ${
                     isActive
-                      ? 'text-blue-700 bg-blue-50 shadow-sm'
-                      : 'text-gray-700 hover:text-blue-700 hover:bg-gray-50'
+                      ? 'text-indigo-600 bg-indigo-50 shadow-sm'
+                      : 'text-gray-700 hover:text-indigo-600 hover:bg-gray-50'
                   }`}
                 >
                   <Icon className="h-4 w-4 mb-1" />
@@ -84,8 +84,8 @@ export const Navigation: React.FC<NavigationProps> = ({
                   to={item.path}
                   className={`flex items-center space-x-1 px-3 py-2 rounded-lg text-xs font-medium transition-all duration-200 focus-ring ${
                     isActive
-                      ? 'text-blue-700 bg-blue-50 shadow-sm'
-                      : 'text-gray-700 hover:text-blue-700 hover:bg-gray-50'
+                      ? 'text-indigo-600 bg-indigo-50 shadow-sm'
+                      : 'text-gray-700 hover:text-indigo-600 hover:bg-gray-50'
                   }`}
                   title={item.description}
                 >
@@ -128,14 +128,14 @@ export const Navigation: React.FC<NavigationProps> = ({
             {isAuthenticated ? (
               <div className="flex items-center space-x-3">
                 <div className="flex items-center space-x-2 px-3 py-2 text-sm text-gray-600">
-                  <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-500 rounded-full flex items-center justify-center">
+                  <div className="w-8 h-8 bg-gradient-to-r from-indigo-500 to-violet-500 rounded-full flex items-center justify-center">
                     <span className="text-white font-medium text-sm">A</span>
                   </div>
                   <span className="hidden xl:inline font-medium">Alex</span>
                 </div>
                 <Link
                   to="/dashboard"
-                  className="flex items-center space-x-2 px-4 py-2 rounded-lg bg-gradient-to-r from-blue-700 to-purple-600 text-white hover:from-blue-800 hover:to-purple-700 transition-all duration-200 shadow-sm btn-hover focus-ring"
+                  className="btn-primary inline-flex items-center space-x-2"
                 >
                   <User className="h-4 w-4" />
                   <span className="hidden xl:inline">Dashboard</span>
@@ -144,9 +144,9 @@ export const Navigation: React.FC<NavigationProps> = ({
             ) : (
               <button
                 onClick={onLogin}
-                className="px-4 py-2 rounded-lg bg-gradient-to-r from-blue-700 to-purple-600 text-white hover:from-blue-800 hover:to-purple-700 transition-all duration-200 shadow-sm btn-hover focus-ring"
+                className="btn-primary"
               >
-                <span className="font-medium">Sign In</span>
+                <span>Sign In</span>
               </button>
             )}
           </div>
@@ -166,8 +166,8 @@ export const Navigation: React.FC<NavigationProps> = ({
                   onClick={() => setIsMobileMenuOpen(false)}
                   className={`flex items-center space-x-4 px-4 py-4 rounded-lg transition-colors focus-ring ${
                     isActive
-                      ? 'text-blue-700 bg-blue-50'
-                      : 'text-gray-700 hover:text-blue-700 hover:bg-gray-50'
+                      ? 'text-indigo-600 bg-indigo-50'
+                      : 'text-gray-700 hover:text-indigo-600 hover:bg-gray-50'
                   }`}
                 >
                   <Icon className="h-5 w-5" />
@@ -184,7 +184,7 @@ export const Navigation: React.FC<NavigationProps> = ({
               <Link
                 to="/dashboard"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="flex items-center space-x-4 px-4 py-4 rounded-lg transition-colors text-gray-700 hover:text-blue-700 hover:bg-gray-50 focus-ring"
+                className="flex items-center space-x-4 px-4 py-4 rounded-lg transition-colors text-gray-700 hover:text-indigo-600 hover:bg-gray-50 focus-ring"
               >
                 <LayoutGrid className="h-5 w-5" />
                 <div>
@@ -219,15 +219,15 @@ export const Navigation: React.FC<NavigationProps> = ({
               {isAuthenticated ? (
                 <div className="space-y-3">
                   <div className="flex items-center space-x-3 px-4 py-2">
-                    <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-500 rounded-full flex items-center justify-center">
+                    <div className="w-8 h-8 bg-gradient-to-r from-indigo-500 to-violet-500 rounded-full flex items-center justify-center">
                       <span className="text-white font-medium text-sm">A</span>
                     </div>
-                    <span className="font-medium text-gray-900">Alex</span>
+                    <span className="font-medium" style={{ color: 'var(--text)' }}>Alex</span>
                   </div>
                   <Link
                     to="/dashboard"
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="flex items-center space-x-3 px-4 py-4 text-blue-700 hover:bg-blue-50 rounded-lg transition-colors focus-ring"
+                    className="flex items-center space-x-3 px-4 py-4 text-indigo-600 hover:bg-indigo-50 rounded-lg transition-colors focus-ring"
                   >
                     <User className="h-5 w-5" />
                     <span>Dashboard</span>
@@ -239,9 +239,9 @@ export const Navigation: React.FC<NavigationProps> = ({
                     onLogin();
                     setIsMobileMenuOpen(false);
                   }}
-                  className="w-full px-4 py-4 rounded-lg bg-gradient-to-r from-blue-700 to-purple-600 text-white hover:from-blue-800 hover:to-purple-700 transition-all duration-200 btn-hover focus-ring"
+                  className="btn-primary w-full"
                 >
-                  <span className="font-medium">Sign In</span>
+                  <span>Sign In</span>
                 </button>
               )}
             </div>
